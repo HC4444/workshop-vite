@@ -1,24 +1,23 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable no-unused-vars */
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useParams } from "react-router-dom";
-import DemoPage from './pages/demoPage.jsx'
-import './index.css'
-import Home from './Home.jsx'
+import DemoPage from './pages/demoPage.jsx';
+import './index.css';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Router>
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/demo' element={<DemoPage />} />
-        <Route path='/profile/:name' element={<ProfileRouter />} />
+        {/* Set DemoPage (or any desired component) as the default page */}
+        <Route path="/" element={<DemoPage />} />
+        <Route path="/profile/:name" element={<ProfileRouter />} />
       </Routes>
     </Router>
-  </StrictMode>,
-)
+  </StrictMode>
+);
 
 function ProfileRouter() {
   const { name } = useParams();
@@ -27,7 +26,7 @@ function ProfileRouter() {
     case "Ryan(Demo)":
       return <DemoPage />;
 
-    // Change <DemoPage /> to your custom profile page, and change the case to your name
+    // Add custom profile pages as needed
     case "Person1":
       return <DemoPage />;
     case "Person2":
@@ -43,7 +42,7 @@ function ProfileRouter() {
     case "Person7":
       return <DemoPage />;
     case "Person8":
-        return <DemoPage />;
+      return <DemoPage />;
     case "Person9":
       return <DemoPage />;
     case "Person10":
@@ -52,3 +51,4 @@ function ProfileRouter() {
       return <div>Profile not found</div>;
   }
 }
+
